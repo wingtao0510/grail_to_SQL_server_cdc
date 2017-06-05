@@ -12,8 +12,6 @@ class TestLogInsertSpec extends Specification {
     @Shared
     int previousNum = 0;
 
-
-
     def insertData() {
 
         new Employee(
@@ -24,31 +22,12 @@ class TestLogInsertSpec extends Specification {
         ).save(flush: true)
     }
 
-    def editData() {
-        def employee = Employee.findByEmployeeID("newEmployee")
-//        employee.dateOfBirth = '1/1/2000'
-        //employee.save(flush: true)
-    }
-
-    def cleanup() {
-
-    }
-
-//    @Transactional
-//    void "test insert"() {
-//        given:
-//        previousNum = Employee.count();
-//        insertData();
-//        expect:
-//        Employee.count() == previousNum+1;
-//    }
-
     @Transactional
     void "test log by insert record"(){
         given:
         println "running insert record"
         int employeeCount = Employee.count()
-
+        sleep(10000);
         previousNum = EmployeeLog.count();
         insertData();
         expect:
@@ -60,9 +39,17 @@ class TestLogInsertSpec extends Specification {
     void "test later"() {
         given:
         println "running test later"
-        sleep(20000);
+        sleep(10000);
 
         expect:
         EmployeeLog.count() == previousNum + 1;
     }
+
+//    @Transactional
+//    def cleanup() {
+//        def employee = Employee.findByEmployeeID("newEmployee")
+//        if (employee){
+//            employee.delete(flush:true)
+//        }
+//    }
 }
