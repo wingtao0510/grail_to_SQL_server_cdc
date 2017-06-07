@@ -114,6 +114,7 @@ https://docs.microsoft.com/en-us/sql/relational-databases/system-tables/change-d
 
 
 Disable the the Change Data Capture function of a database
+```
 -- =======  
 -- Disable Database for Change Data Capture template   
 -- =======  
@@ -121,9 +122,10 @@ USE MyDB
 GO  
 EXEC sys.sp_cdc_disable_db  
 GO 
-
+```
 
 Disable the Change Data Capture function of a table
+```
 -- =====  
 -- Disable a Capture Instance for a Table template   
 -- =====  
@@ -134,7 +136,7 @@ EXEC sys.sp_cdc_disable_table
 @source_name   = N'MyTable',  
 @capture_instance = N'dbo_MyTable'  
 GO  
-
+```
 
 For more details about Change Data Capture, please read this link:
 https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server
