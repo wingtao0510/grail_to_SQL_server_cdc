@@ -6,17 +6,17 @@ SELECT	SERVERPROPERTY('productversion') as Product_Version,
 SERVERPROPERTY ('productlevel') as Product_Level, 
 SERVERPROPERTY ('edition') as Edition
 
-![ScreenShot](http://imgur.com/kNkit4X)
+![ScreenShot](http://i.imgur.com/kNkit4X.jpg)
 
 
 If the product level is older than SP1, go to https://support.microsoft.com/en-hk/help/321185/how-to-determine-the-version,-edition-and-update-level-of-sql-server-and-its-components.
 
-![ScreenShot](http://imgur.com/peUCxFu) 
+![ScreenShot](http://i.imgur.com/peUCxFu.jpg) 
 
 Download the most recent service pack and install it.
 
 Check the SQL server version again, the product level should be updated.
-![ScreenShot](http://imgur.com/4KNGiGQ)
+![ScreenShot](http://i.imgur.com/4KNGiGQ.jpg)
 
 Type the following query to enable the Change Data Capture for Database
 ```
@@ -44,7 +44,7 @@ GO
 ```
 
 If the database is successfully enabled, the is_cdc_enabled should be 1
-![ScreenShot](http://imgur.com/TKdJCck)
+![ScreenShot](http://i.imgur.com/TKdJCck.jpg)
 
 ```
 Type the following query to enable Change Data Capture for a Table
@@ -75,7 +75,7 @@ GO
 ```
 
 If the table is successfully enabled, the is_tracked_by_cdc should be 1
-![ScreenShot](http://imgur.com/NGxiKvu)
+![ScreenShot](http://i.imgur.com/NGxiKvu.jpg)
 
 Now the database and the table has enabling the Change Data Capture function successfully.
 
