@@ -1,9 +1,9 @@
-package ideaprojects
-
+package com.hk.proactivesystem
 
 import grails.test.mixin.integration.Integration
-import grails.transaction.*
-import spock.lang.*
+import grails.transaction.Rollback
+import spock.lang.Shared
+import spock.lang.Specification
 
 @Integration
 @Rollback
@@ -14,15 +14,15 @@ class InsertSpec extends Specification {
 
     def setup() {
         println "running insert record"
-        employeeCount = Employee.count()
         employeeLogCount = EmployeeLog.count();
+        employeeCount = Employee.count()
         new Employee(
                 employeeID:'newEmployee',
                 firstName:'Tai Man',
                 lastName: 'Chan',
                 dateOfBirth: '23/11/2017'
         ).save(flush: true)
-        employeeLogCount++;
+        employeeLogCount++
     }
 
     def cleanup() {

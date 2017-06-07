@@ -1,4 +1,4 @@
-package ideaprojects
+package com.hk.proactivesystem
 
 class EmployeeLog implements Serializable {
 
@@ -16,7 +16,6 @@ class EmployeeLog implements Serializable {
 
     static mapping = {
         table name: "dbo_employee_CT", schema:'cdc'
-//        table "dbo_employee_CT"
         start_lsn column: '__$start_lsn'
         end_lsn column: '__$end_lsn'
         seqval column: '__$seqval'
@@ -30,16 +29,6 @@ class EmployeeLog implements Serializable {
         id composite: ['start_lsn', 'seqval', 'operation'], generator: 'assigned'
         originalId column: 'id'
     }
-
-//    static mapping = {
-//        id column: "id", sqlType: "numeric", length: 19
-//        version column: "version", sqlType: "numeric", length: 19
-//        date_of_birth column: "date_of_birth", sqlType: "varchar", length: 255
-//        employeeid column: "date_of_birth", sqlType: "varchar", length: 255
-//        first_name column: "first_name", sqlType: "varchar", length: 255
-//        last_name column: "last_name", sqlType: "varchar", length: 255
-//
-//    }
 
     static constraints = {
     }

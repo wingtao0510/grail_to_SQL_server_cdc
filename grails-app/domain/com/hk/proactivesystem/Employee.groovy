@@ -1,4 +1,4 @@
-package ideaprojects
+package com.hk.proactivesystem
 
 class Employee {
 

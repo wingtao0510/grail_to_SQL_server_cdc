@@ -1,9 +1,9 @@
-package ideaprojects
-
+package com.hk.proactivesystem
 
 import grails.test.mixin.integration.Integration
-import grails.transaction.*
-import spock.lang.*
+import grails.transaction.Rollback
+import spock.lang.Shared
+import spock.lang.Specification
 
 @Integration
 @Rollback
