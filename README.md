@@ -1,4 +1,4 @@
-Here are the steps for setting the change data capture function in SQL server 2016
+# Here are the steps for setting the change data capture function in SQL server 2016
 
 First, check the SQL server version by typing in the following query:
 
@@ -6,18 +6,20 @@ SELECT	SERVERPROPERTY('productversion') as Product_Version,
 SERVERPROPERTY ('productlevel') as Product_Level, 
 SERVERPROPERTY ('edition') as Edition
 
-http://imgur.com/kNkit4X
+![ScreenShot](http://imgur.com/kNkit4X)
 
 
 If the product level is older than SP1, go to https://support.microsoft.com/en-hk/help/321185/how-to-determine-the-version,-edition-and-update-level-of-sql-server-and-its-components.
-http://imgur.com/peUCxFu    
+
+![ScreenShot](http://imgur.com/peUCxFu) 
 
 Download the most recent service pack and install it.
 
 Check the SQL server version again, the product level should be updated.
-http://imgur.com/4KNGiGQ
+![ScreenShot](http://imgur.com/4KNGiGQ)
 
 Type the following query to enable the Change Data Capture for Database
+```
 -- ====  
 -- Enable Database for CDC template   
 -- ====  
@@ -25,8 +27,10 @@ USE MyDB
 GO  
 EXEC sys.sp_cdc_enable_db  
 GO  
+```
 
 Then, check if the database is enable with change data capture function
+```
 --This script is compatible with SQL Server 2008 and above.
 USE master
 GO
@@ -37,10 +41,12 @@ is_cdc_enabled
 FROM sys.databases
 GO
 --OUTPUT
+```
 
 If the database is successfully enabled, the is_cdc_enabled should be 1
-http://imgur.com/TKdJCck
+![ScreenShot](http://imgur.com/TKdJCck)
 
+```
 Type the following query to enable Change Data Capture for a Table
 -- =============  
 -- Enable a Table Without Using a Gating Role template 
@@ -53,8 +59,10 @@ EXEC sys.sp_cdc_enable_table
 @role_name     = NULL,  
 @supports_net_changes = 1  
 GO
+```
 
 Then, check if the table is enabled with change data capture function
+```
 USE [MyDB]
 GO
 SELECT
@@ -64,40 +72,40 @@ name As [Table Name],
 is_tracked_by_cdc
 FROM sys.tables
 GO
-
+```
 
 If the table is successfully enabled, the is_tracked_by_cdc should be 1
-http://imgur.com/NGxiKvu
+![ScreenShot](http://imgur.com/NGxiKvu)
 
 Now the database and the table has enabling the Change Data Capture function successfully.
 
 Tables will be generated automatically by the Change Data Capture function.
 
-cdc._CT
+* cdc._CT
 
 Returns one row for each change made to a captured column in the associated source table. 
 
-cdc.captured_columns
+* cdc.captured_columns
 
 Returns one row for each column tracked in a capture instance. 
 
-cdc.change_tables
+* cdc.change_tables
 
 Returns one row for each change table in the database. 
 
-cdc.ddl_history
+* cdc.ddl_history
 
 Returns one row for each data definition language (DDL) change made to tables that are enabled for change data capture. 
 
-cdc.lsn_time_mapping
+* cdc.lsn_time_mapping
 
 Returns one row for each transaction having rows in a change table. This table is used to map between log sequence number (LSN) commit values and the time the transaction committed. 
 
-cdc.index_columns
+* cdc.index_columns
 
 Returns one row for each index column associated with a change table. 
 
-dbo.cdc_jobs (Transact-SQL)
+* dbo.cdc_jobs (Transact-SQL)
 
 Returns the configuration parameters for change data capture agent jobs. 
 
@@ -130,4 +138,3 @@ GO
 
 For more details about Change Data Capture, please read this link:
 https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server
-
