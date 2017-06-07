@@ -43,7 +43,6 @@ class DeleteSpec extends Specification {
         println "running delete record"
         sleep(20000);
         expect:
-//        assert employeeCount == Employee.count()
         assert eNumBeforeDelete-1 == Employee.count()
         assert EmployeeLog.count() == logNumBeforeDelete+1;
     }
