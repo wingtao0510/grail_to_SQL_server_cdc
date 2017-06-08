@@ -1,6 +1,6 @@
 # Here is the demo of grails connect to SQL server2016 with change data capture function
 
-###Change Data Capture
+### Change Data Capture
 
 First, check the SQL server version by typing in the following query:
 
