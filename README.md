@@ -1,4 +1,6 @@
-# Here are the steps for setting the change data capture function in SQL server 2016
+# Here is the demo of grails connect to SQL server2016 with change data capture function
+
+###Change Data Capture
 
 First, check the SQL server version by typing in the following query:
 
